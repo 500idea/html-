@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    for (var i = 0; i < it.length; i++) {
+        if (it[i].type == 4) {
+            //     <div class="lists-first">
+            //   <div class="lists-first-header">
+            //     <img src="../../image/cs/32.png" alt="" class="card1">
+            //     <!--<div>预约号：123</div>-->
+            //   </div>
+            //   <div class="lists-first-center">
+            //     <div class="lists-first-center-time">123/123&nbsp&nbsp&nbsp123-123</div>
+            //     <div class="lists-first-center-title">123</div>
+            //       <span><img src="../../image/cs/34.png" class="lists-first-center-title-img"></span>
+            //       <span class="lists-first-center-centent">123</span>
+            //   </div>
+            //   <div class="lists-first-footer">
+            //     <span class="touxiang"><img src="123" alt="图片"></span>
+            //     <span class="jianje-header0">
+            //       <div class="">123(123)</div>
+            //       <div class="jianje-header0-two" tapmode onclick="themeClass('123')">查看详情</div>
+            //     </span>
+            //   </div>
+            // </div>
+        } else if (it[i].type == 1) {
+            //   <div class="lists-first">
+            //   <div class="lists-first-header">
+            //   <img src="../../image/cs/22.png" alt="" class="card0">
+            if (it[i].retain == 1) {
+                // <span class="content-header-keep">预约保留</span>
+            }
+            //         <div>{{= it[i].user_info.shopName}}</div>
+            //   </div>
+            //   <div class="lists-first-center">{{= it[i].service_date}}/{{= weeks[new Date(it[i].service_date).getDay()]+'  '}}&nbsp;&nbsp;&nbsp;{{= it[i].start_time}}-{{= it[i].end_time}}</div>
+            //   <div class="lists-first-footer">
+            //     <span class="touxiang"><img src="{{= it[i].user_info.avatar}}" alt=""></span>
+            //     <span class="jianje-header">
+            //       <div class="">{{= it[i].user_info.name}}({{= it[i].user_info.rolename}})&nbsp;&nbsp;&nbsp;&nbsp;星级{{= it[i].user_info.star_level}}</div>
+            //     </span>
+            //   </div>
+            // </div>
+        } else if (it[i].type == 2) {
+            //     <div class="lists-first">
+            //   <div class="lists-first-header">
+            //     <img src="../../image/cs/23.png" alt="" class="card1">
+            //     <div>{{= it[i].user_info.shopName}}</div>
+            //   </div>
+            //   <div class="lists-first-center">
+            //     <div class="lists-first-center-time">{{= it[i].service_date}}/{{= it[i].week}}&nbsp&nbsp&nbsp{{= it[i].start_time}}-{{= it[i].end_time}}</div>
+            //     <div class="lists-first-center-title">{{= it[i].title}}</div>
+            if (it[i].content.length > 36) {
+                // <span class="lists-first-center-centent" id="{{= 'zk_'+it[i].id}}">{{= it[i].content.slice(0,36)+'...'}}<span onclick="zk({{= it[i].id}})" style="color:#009DFF">展开<img class="down" src="../../image/workbench/down.png" alt=""/></span></span>
+                //   <span  class="lists-first-center-centent" style="display:none;" id="{{= 'sq_'+it[i].id}}">{{= it[i].content}}<span onclick="sq({{= it[i].id}})" style="color:#009DFF">收起<img class="up" src="../../image/workbench/up.png" alt=""/></span></span>
+            } else {
+                // <span class="lists-first-center-centent">{{= it[i].content}}</span>
+            }
+            // </div>
+            //       <div class="lists-first-footer">
+            //         <span class="touxiang"><img src="{{= it[i].user_info.avatar}}" alt=""></span>
+            //         <span class="jianje-header">
+            //           <div class="">{{= it[i].user_info.name}}({{= it[i].user_info.rolename}})&nbsp;&nbsp;&nbsp;&nbsp;星级{{= it[i].user_info.star_level}}</div>
+            //         </span>
+            //       </div>
+            //     </div>
+        }
+    }
+
+
+</script>
+
+</html>

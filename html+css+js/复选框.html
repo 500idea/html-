@@ -1,0 +1,38 @@
+<script>
+</script>
+<style>
+a{
+font-size:12px;
+font-weight:bold;
+color:SteelBlue;
+text-decoration: none;
+}
+</style>
+<script>
+function selectAll(checkbox){
+   var  checked = checkbox.checked;
+   var checkboxes= document.getElementsByTagName("input");
+   for(var i in checkboxes){
+       checkboxes[i].checked=checked?"checked":"";
+   }
+}
+
+function reverse(){
+   var checkboxes= document.getElementsByTagName("input");
+   for(var i in checkboxes){
+       if(0==i)
+           continue;
+       checkboxes[i].checked=checkboxes[i].checked?"":"checked";
+   }
+}
+
+</script>
+<input type="checkbox" onclick="selectAll(this)" > 全选<br>
+<input type="checkbox" > tokyo hot<br>
+<input type="checkbox" > dota <br>
+<input type="checkbox" > lol <br>
+<input type="checkbox" > wow <br>
+<input type="checkbox" > warcraft <br>
+<input type="checkbox" > diablo <br>
+<a href="#nowhere" onclick="reverse()">反选</a>
+

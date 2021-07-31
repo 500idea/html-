@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 90%;
+        }
+
+        tr.odd {
+            background-color: #f8f8f8;
+        }
+
+        tr {
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: lightgray;
+            height: 35px;
+        }
+
+        td {
+            width: 25%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+</body>
+<script type="text/javascript">
+
+    var row0 = new Array("id", "名称", "血量", "伤害");
+    var row1 = new Array("1", "gareen", "340", "58");
+    var row2 = new Array("2", "teemo", "320", "76");
+    var row3 = new Array("3", "annie", "380", "38");
+    var row4 = new Array("4", "deadbrother", "400", "90");
+    var rows = new Array(row0, row1, row2, row3, row4);
+
+    let div = document.getElementById("div");
+    let table = createrow(rows);
+    div.appendChild(table);
+
+    function createtd(text) {
+        let td = document.createElement("td");
+        let text1 = document.createTextNode(text);
+        td.appendChild(text1);
+        return td;
+    }
+    function createtr(texts) {
+        let tr = document.createElement("tr");
+        for (let i = 0; i < texts.length; i++) {
+            let td = createtd(texts[i]);
+            tr.appendChild(td);
+        }
+        return tr;
+    }
+    function createrow(rows) {
+        let table = document.createElement("table");
+        for (let i = 0; i < rows.length; i++) {
+            let tr = createtr(rows[i]);
+            table.appendChild(tr);
+        }
+        return table;
+    }
+</script>
+
+</html>

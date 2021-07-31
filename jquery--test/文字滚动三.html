@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .roll {
+            border: 1px black solid;
+            margin: 0px auto;
+            width: 200px;
+            height: 25px;
+            overflow: hidden;
+        }
+
+        .roll ul {
+            list-style: none;
+        }
+
+        .roll li {
+            line-height: 24px;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript" src="../jquery/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        var lbt = setInterval(function () { // 添加定时器，每1.5s进行转换
+            $("#roll").find("ul:first").animate({
+                marginTop: "-24px" //每次移动的距离
+            }, 2000, function () { // 动画运动的时间
+                //$(this)指的是ul对象，
+                //ul复位之后把第一个元素和第二个元素插入
+                //到ul的最后一个元素的位置
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
+                // $(this).find("li:first").appendTo(this);
+            });
+        }, 4000)
+    </script>
+</head>
+
+<body>
+    <div id="roll" class="roll">
+        <ul>
+            <li>滚动1</li>
+            <li>滚动2</li>
+        </ul>
+
+    </div>
+</body>
+
+</html>

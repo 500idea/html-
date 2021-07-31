@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body{
+            font-size: 24px;
+        }
+    </style>
+    <script type="text/javascript">
+        var xiaoming = {
+            name: '小明',
+            age: 19
+        };
+        xiaoming.address = 'bj';
+        delete xiaoming.age;
+        console.log(xiaoming.name, xiaoming.age, xiaoming.address);
+
+        var xiaohong = {
+            name: '小红',
+            birth: 1990,
+            school: 'No.1 Middle School',
+            height: 1.70,
+            weight: 65,
+            score: null
+        };
+
+        for(let i in xiaohong){
+            console.log(`${i}:${xiaohong[i]}`);
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
