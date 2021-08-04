@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function add(){
+                let num = 0;
+                function a (restart){
+                    if(restart){
+                        num = 0;
+                    }
+                    num++;
+                    console.log(num);
+                }
+                return a;
+            }
+            myadd = add();
+            myadd();
+            myadd();
+            myadd(1);
+            myadd();
+            myadd();
+
+            function eat(){
+                let food = "apple";
+                let foods = {
+                    push: function(input){
+                        food = input;
+                    },
+                    out: function(){
+                        console.log("I am eatting " + food);
+                        food = "";
+                    }
+                }
+                return foods;
+            }
+
+            let person = eat();
+            person.out();
+            person.push("banana");
+            person.out();
+
+        </script>
+    </body>
+</html>

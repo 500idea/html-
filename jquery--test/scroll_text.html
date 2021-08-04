@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    .header-footer-top-2{
+      display: flex;
+      align-items: stretch;
+      height: 20px;
+      overflow: hidden;
+      margin: 12px 0 17.5px 0;
+    }
+    .header-footer-top-2 ul li{
+      margin-left: 7px;
+      font-size: 15px;
+      line-height: 20px;
+      font-family: Source Han Sans CN;
+      color: #A6937C;
+    }
+    </style>
+    
+</head>
+
+<body>
+    <div class="header-footer-top-2">
+        <ul>
+        <li>新网员专属5次1V1服务：已约X次、剩余X次</li>
+        <li>新网员专属5次1V1服务：已约X次、剩余X次</li>
+        <li>新网员专属5次1V1服务：已约X次、剩余X次</li>
+        <li>新网员专属5次1V1服务：已约X次、剩余X次</li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript" src="../jquery/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        var lbt = setInterval(function () { // 添加定时器，每1.5s进行转换
+            $(".header-footer-top-2").find("ul:first").animate({
+                marginTop: "-16px" //每次移动的距离
+            }, 2000, function () { // 动画运动的时间
+                //$(this)指的是ul对象，
+                //ul复位之后把第一个元素和第二个元素插入
+                //到ul的最后一个元素的位置
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
+            });
+        }, 4000)
+    </script>
+</html>
