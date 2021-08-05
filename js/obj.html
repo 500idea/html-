@@ -13,7 +13,7 @@
         //     knowledge: 60,
         //     study: function () {
         //         console.log('i am studying');
-        //         this.knowledge++;//this  值当前对象
+        //         this.knowledge++;//this  指当前对象
         //     },
         //     play: function () {
         //         console.log('i am playing games');
@@ -46,16 +46,26 @@
         //     var a;
         //     console.log(this.a);
         // }
+        // var n = 5;
+        // function testN(target) {
+        //     a = 0;
+        //     this.a = target;
+        //     console.log(a);
+        //     console.log(this.a);
+        //     console.log(this.n);
+        //     var a;
+        //     console.log(this.a);
+        // }
+        // let gg = new testN('gg');
 
         // function Person1(name,age) {
         //     var a = 0;
         //     this.name = name;
         //     this.age = age;
-        //     function sss() {
+        //     this.s = function sss() {
         //         a++;
         //         console.log(a);
         //     }
-        //     this.s = sss;
         // }
         // var person11 = new Person1('小明',16);
         // person11.s();
@@ -81,7 +91,6 @@
         //     console.log(arguments);
         //     return x;
         // }(1, 2, 3, 4, 5);
-
         // (function foo(x) {
         //     console.log(arguments);
         //     return x;

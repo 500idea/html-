@@ -44,13 +44,16 @@
             //             food = input;
             //         },
             //         out: function(){
-            //             console.log("I am eatting " + food);
+            //             if(food){
+            //                 console.log("I am eatting " + food);
+            //             }else{
+            //                 console.log('nothing is here!')
+            //             }
             //             food = "";
             //         }
             //     }
             //     return foods;
             // }
-
             // let person = eat();
             // person.out();
             // person.push("banana");
@@ -90,7 +93,7 @@
             // for(let i = 0; i < test1.length; i++){
             //     test1[i]();
             // }
-            // //子函数用let 声明，最后读到的是0-9，似乎在创建AO时读不到let声明的变量
+            //子函数用let 声明，最后读到的是0-9，let会在再次循环到变量声明的时候再次声明一次，且之前的let声明的变量的值js引擎会记得。
             // function functions_1(){
             //     var x = [];
             //     for(let i = 0; i < 10; i++){
@@ -104,7 +107,7 @@
             // for(let i = 0; i < test2.length; i++){
             //     test2[i]();
             // }
-            // //立即执行函数，最后读到的是0-9
+            //立即执行函数，最后读到的是0-9
             // function functions_2(){
             //     var x = [];
             //     for(var i = 0; i < 10; i++){
@@ -112,7 +115,7 @@
             //             x[i] = function(){
             //                 console.log(i);
             //             }
-            //         }(i))
+            //         })(i)
             //     }
             //     return x;
             // }
