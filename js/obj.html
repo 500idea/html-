@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script type='text/javascript'>
+        // let person = {
+        //     name: '小明',
+        //     age: 12,
+        //     knowledge: 60,
+        //     study: function () {
+        //         console.log('i am studying');
+        //         this.knowledge++;//this  值当前对象
+        //     },
+        //     play: function () {
+        //         console.log('i am playing games');
+        //         this.knowledge--;
+        //     }
+        // }
+        // person.teacher = '李明';//属性的添加
+        // person.age = 13;//属性的修改
+        // delete person.teacher;//属性的删除，当该对象没有该属性时，不会报错，会返回undefined
+        
+        //包装类
+        // var m = 'abcd';
+        // m.length = 2;
+        // console.log(m);
+
+        // var str = 'abc';
+        // str += 1;
+        // var type1 = typeof(str);
+        // if(type1.length == 6){
+        //     type1.sign = 'typeof的返回结果可能是String';
+        // }
+        // console.log(type1.sign);
+
+        // var n = 5;
+        // function testN(){
+        //     a = 0;
+        //     console.log(a);
+        //     console.log(this.a);
+        //     console.log(this.n);
+        //     var a;
+        //     console.log(this.a);
+        // }
+
+        // function Person1(name,age){
+        //     var a = 0;
+        //     this.name = name;
+        //     this.age = age;
+        //     function sss(){
+        //         a++;
+        //         console.log(a);
+        //     }
+        //     this.s = sss;
+        // }
+        // var person11 = new Person1('小明',16);
+        // person11.s();
+        // person11.s();
+        // person11.s();
+        // var person22 = new Person1('小明',16);
+        // person22.s();
+        // person22.s();
+        // person11.s();
+
+        var x = 1, y = z = 0;
+        function add(n){
+            return n = n + 1;
+        }
+        y = add(x);
+        function add(n){
+            return n = n + 3;
+        }
+        z = add(x);
+        console.log(x,y,z);
+  </script>
+</body>
+
+</html>
