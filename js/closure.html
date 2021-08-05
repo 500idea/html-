@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            li:nth-of-type(2n + 1){
+                background-color: aqua;
+            }
+            li:nth-of-type(2n){
+                background-color: rgb(112, 47, 47);
+            }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // function add(){
+            //     let num = 0;
+            //     function a (restart){
+            //         if(restart){
+            //             num = 0;
+            //         }
+            //         num++;
+            //         console.log(num);
+            //     }
+            //     return a;
+            // }
+            // myadd = add();
+            // myadd();
+            // myadd();
+            // myadd(1);
+            // myadd();
+            // myadd();
+
+            // function eat(){
+            //     let food = "apple";
+            //     let foods = {
+            //         push: function(input){
+            //             food = input;
+            //         },
+            //         out: function(){
+            //             console.log("I am eatting " + food);
+            //             food = "";
+            //         }
+            //     }
+            //     return foods;
+            // }
+
+            // let person = eat();
+            // person.out();
+            // person.push("banana");
+            // person.out();
+
+            // //return带括号
+            // function hasBrackets(){
+            //     let x = '123';
+            //     function m(){
+            //         return x;
+            //     }
+            //     return m();
+            // }
+            // var has_brackets = hasBrackets();
+            // has_brackets;
+            // //return不带括号
+            // function noBrackets(){
+            //     let x = '456';
+            //     function m(){
+            //         return x;
+            //     }
+            //     return m;
+            // }
+            // var no_brackets = noBrackets();
+            // no_brackets();
+            //var 声明，最后读到的是10个10
+            // function functions(){
+            //     var x = [];
+            //     for(var i = 0; i < 10; i++){
+            //         x[i] = function(){
+            //             console.log(i);
+            //         }
+            //     }
+            //     return x;
+            // }
+            // let test1 = functions();
+            // for(let i = 0; i < test1.length; i++){
+            //     test1[i]();
+            // }
+            // //子函数用let 声明，最后读到的是0-9，似乎在创建AO时读不到let声明的变量
+            // function functions_1(){
+            //     var x = [];
+            //     for(let i = 0; i < 10; i++){
+            //         x[i] = function(){
+            //             console.log(i);
+            //         }
+            //     }
+            //     return x;
+            // }
+            // let test2 = functions_1();
+            // for(let i = 0; i < test2.length; i++){
+            //     test2[i]();
+            // }
+            // //立即执行函数，最后读到的是0-9
+            // function functions_2(){
+            //     var x = [];
+            //     for(var i = 0; i < 10; i++){
+            //         (function (i){
+            //             x[i] = function(){
+            //                 console.log(i);
+            //             }
+            //         }(i))
+            //     }
+            //     return x;
+            // }
+            // let test3 = functions_2();
+            // for(let i = 0; i < test3.length; i++){
+            //     test3[i]();
+            // }
+        </script>
+        <!-- dom操作时，以为闭包问题会造成一些问题 -->
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <script type="text/javascript">
+            //for循环使用var定义会使得i成为AO的属性，成为公共值，使得每次打印出都是4
+            // function getLi(){
+            //     var li_list = document.getElementsByTagName('li');
+            //     for(var i = 0; i < li_list.length; i++){
+            //         li_list[i].onclick = function(){
+            //             console.log(i);
+            //         }
+            //     }
+            // }
+            // getLi();
+            //使用let定义可以避免这个问题
+            // function getLi_1(){
+            //     var li_list = document.getElementsByTagName('li');
+            //     for(let i = 0; i < li_list.length; i++){
+            //         li_list[i].onclick = function(){
+            //             console.log(i);
+            //         }
+            //     }
+            // }
+            // getLi_1();
+            //使用立即执行函数避免这个问题
+            // function getLi_2(){
+            //     var li_list = document.getElementsByTagName('li');
+            //     for(let i = 0; i < li_list.length; i++){
+            //         (function (i) {li_list[i].onclick = function(){
+            //             console.log(i);
+            //         }}(i))
+            //     }
+            // }
+            // getLi_2();
+        </script>
+    </body>
+</html>
