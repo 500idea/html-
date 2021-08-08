@@ -98,23 +98,51 @@
         
 
         //原型 prototype
-        function Person(){
-          this.hair = 'black';
-        }
-        Person.prototype.lastName = '张';
-        var person = new Person(); 
+        // function Person(){
+        //   this.hair = 'black';
+        // }
+        // Person.prototype.lastName = '张';
+        // var person = new Person(); 
 
-        function Car(name, Color){
-          this.name = name;
-          this.color = Color;
-        }
-        Car.prototype = {
-          weight: '5000kg',
-          height: '120cm',
-          long: '4900cm',
-          constructor: Person
-        }
-        var car1 = new Car('王', 'red');
+        // function Car(name, Color){
+        //   this.name = name;
+        //   this.color = Color;
+        // }
+        // Car.prototype = {
+        //   weight: '5000kg',
+        //   height: '120cm',
+        //   long: '4900cm',
+        //   constructor: Person
+        // }
+        // var car1 = new Car('王', 'red');
+        //原型链
+        //call/apply 改变this指向
+        // function Person(name,age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // var person = new Person('xiaowang', 33);
+        // var person2 = {};//必须是个js对象
+        // Person.call(person2, 'xiaozhao', 22);
+        // var person3 = {};
+        // Person.apply(person3, ['xiaoming', 11]);
+        // function Sit(color, num) {
+        //     this.color = color;
+        //     this.num = num;
+        // }
+        // function Wheel(size) {
+        //     this.size = size;
+        // }
+        // function Car(color, num, size) {
+        //     Sit.call(this, color, num);
+        //     Wheel.call(this, size);
+        // }
+        // function Car_apply(color, num, size) {
+        //     Sit.call(this, [color, num]);
+        //     Wheel.call(this, [size]);
+        // }
+        // var car1 = new Car('red', 4, 590);
+        // var car_apply = new Car('green', 4, 590);
   </script>
 </body>
 
