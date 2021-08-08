@@ -96,6 +96,25 @@
         //     return x;
         // }(1, 2, 3, 4, 5));
         
+
+        //原型 prototype
+        function Person(){
+          this.hair = 'black';
+        }
+        Person.prototype.lastName = '张';
+        var person = new Person(); 
+
+        function Car(name, Color){
+          this.name = name;
+          this.color = Color;
+        }
+        Car.prototype = {
+          weight: '5000kg',
+          height: '120cm',
+          long: '4900cm',
+          constructor: Person
+        }
+        var car1 = new Car('王', 'red');
   </script>
 </body>
 
