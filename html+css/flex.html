@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                display: flex;
+                flex-direction: row;
+                list-style: none;
+            }
+            ul li{
+                flex: 1 1 0;
+                width: 0px;
+                background-color: aqua;
+            }
+            ul li:nth-of-type(2n){
+                flex: 2;
+                background-color: aquamarine;
+            }
+            .flex_basis{
+                display: flex;
+                flex-direction: row;
+            }
+            .div1{
+                width: 150px;
+                min-width: 70px;
+                max-width: 100px;
+                flex-basis:50px;
+                background-color: aquamarine;
+            }
+            .div2{
+                width: 50px;
+                flex-basis:100px;
+                background-color: aqua;
+            }
+            .div3{
+                width: 100px;
+                flex-basis:50px;
+                background-color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>left</li>
+            <li>left</li>
+            <li>leftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftlefleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftleftt</li>
+        </ul>
+        <div class="flex_basis">
+            <div class="div1">flex-basis和width优先级很长的内容</div>
+            <div class="div2">flex-basis和width优先级很长的内容</div>
+            <div class="div3">flex-basis和width优先级很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容很长的内容</div>
+        </div>
+
+    </body>
+</html>

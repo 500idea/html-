@@ -138,11 +138,51 @@
         //     Wheel.call(this, size);
         // }
         // function Car_apply(color, num, size) {
-        //     Sit.call(this, [color, num]);
-        //     Wheel.call(this, [size]);
+        //     Sit.apply(this, [color, num]);
+        //     Wheel.apply(this, [size]);
         // }
         // var car1 = new Car('red', 4, 590);
         // var car_apply = new Car('green', 4, 590);
+
+        //test
+        // function foo() { bar.apply(foo, arguments) }
+        // function bar(x) { console.log(arguments) }
+        // foo(1, 2, 3, 4, 5)
+        
+        // var aa = 1;
+        // if( function f(){}) {
+        //   aa += typeof(f);
+        // }
+        // console.log(aa)
+
+        // var foo = '123';
+        // function aa (){
+        //   var foo = '234';
+        //   this.foo = '345';
+        //   console.log(foo);
+        // }
+        // aa();
+        // console.log(foo);
+
+        // var name = '222';
+        // var a = {
+        //   name : '111',
+        //   say : function (){
+        //     console.log(this.name)
+        //   }
+        // }
+        // var fun = a.say;
+        // fun(); // 222
+        // a.say(); // 111
+        // var b = { 
+        //   name : '333',
+        //   say : function (){
+        //     fun();
+        //   }
+        // }
+        // b.say(a.say); // 222
+        // b.say = a.say;
+        // b.say();  // 333
   </script>
 </body>
 
