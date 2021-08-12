@@ -183,6 +183,90 @@
         // b.say(a.say); // 222
         // b.say = a.say;
         // b.say();  // 333
+
+        // function print() {
+        //     var marty = {
+        //       name : 'marty',
+        //       printName : function(){ console.log(this.name);}
+        //     }
+        //     var test1 = { name : 'test1'};
+        //     var test2 = { name : 'test2'};
+        //     var test3 = { name : 'test3'};
+        //     test3.printName = marty.printName;
+        //     var printName2 = marty.printName.bind({name : 123});
+        //     marty.printName.call(test1); //test1
+        //     marty.printName.apply(test2); // test2
+        //     marty.printName(); // marty
+        //     printName2(); // ??
+        //     test3.printName(); // test3
+        // }
+        
+        // var a = {aa : '123'};
+        // function print() {
+        //   a.aa = '234';
+        //   Object.prototype.b = '456';
+        //   return function mm(){
+        //     console.log(a.aa); // 234
+        //     console.log(a.b); // 456
+        //   }
+        // }
+        // print()();
+
+        // 克隆
+        let obj1 = {
+            mynum : 17,
+            mystring : 'male',
+            myboolean : true,
+            mynull : null,
+            myundefined: undefined,
+            mydate : new Date(),
+            myfn : function(){console.log('do it!')},
+            myobj : {name : 'book1', author : '文' },
+            myarr : [1, 2, 3, 4],
+            myjson : {
+              'data' : [
+                {
+                  'data_1' : 1,
+                  'data_2' : 2
+                },
+                {
+                  'data_1' : 3,
+                  'data_2' : 4
+                }
+              ]
+            }
+        }
+        // function colean(origin,target) {
+        //   var target = target || {};
+        //   for(let key in origin) {
+        //     target[key] = origin[key];
+        //   }
+        //   return target;
+        // }
+        // let obj2 = colean(obj1);
+        // console.log(obj2);
+        // obj2[name] = '张三';
+        // obj2.books[1]= '99';
+        // console.log(obj1,obj2);
+        //invalid
+        // function deepColean(origin, target) {
+        //   var target = target || {},
+        //       toStr = Object.prototype.toString,
+        //       arrStr = '[object Array]';
+        //   for(var key in origin) {
+        //     if(origin.hasOwnProperty(key)){
+        //       if( typeof(origin.key) == 'object'){
+        //         target.key = toStr.call(origin.key) == arrStr ? [] : {};
+        //         colean2(origin[key], target[key])
+        //       }else{
+        //         target[key] = origin[key];
+        //       }
+        //     }
+        //   }
+        //   return target;
+        // }
+        // var obj2 = deepColean(obj1);
+        
   </script>
 </body>
 
