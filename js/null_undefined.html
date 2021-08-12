@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--meta : https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+    <title>判断 null 和 undefined</title>
+</head>
+<body>
+<script type = "text/javascript">
+    var obj = { 
+        mynull : null,
+        mytrue : true,
+        myfalse : false,
+        myundefined : undefined,
+        exp0 : 'undefined',
+        exp1 : 'null',
+        exp2 : 0,
+        exp3 : '0'
+    }
+    for( let key in obj) {
+        if(obj[key] == null){
+            console.log(key + ' == null ');
+        }
+        if(obj[key] === null){
+            console.log(key + ' === null ');
+        }
+        if(null === undefined){
+            console.log('null === undefined ');
+        }
+        if(typeof(obj[key]) == 'undefined'){
+            console.log(key + ' == \'undefined\' ');
+        }
+        if(obj[key] == 0){
+            console.log(key + ' == 0 ');
+        }
+        if(obj[key] == 1){
+            console.log(key + ' == 1 ');
+        }
+        if(obj[key] === 0){
+            console.log(key + ' === 0 ');
+        }
+        if(obj[key] === 1){
+            console.log(key + ' === 1 ');
+        }
+        if(obj[key]){
+            console.log(key + ' 存在 ');
+        }
+
+    }
+</script>
+</body>
+</html>
