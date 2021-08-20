@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--meta : https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+    <title>href伪类</title>
+    <style>
+        a:link {
+            color: blue;
+        }
+
+        a:visited {
+            color: #0ff;
+        }
+
+        a:hover {
+            color: yellow;
+            background-color: brown;
+        }
+
+        a:active {
+            color: black;
+        }
+
+        a::before {
+            content: "→";
+        }
+
+        .ribbon {
+            background-color: #5BC8F7;
+        }
+
+        .ribbon::after {
+            content: "Look at this orange box.";
+            background-color: #FFBA10;
+            border-color: black;
+            border-style: dotted;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://www.baidu.com">点击链接</a>
+    <span class="ribbon">Notice where the orange box is.</span>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>

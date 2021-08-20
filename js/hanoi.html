@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--meta : https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+    <title>title</title>
+</head>
+<body>
+<script type = "text/javascript">
+    let c=0;
+    let move=function(n,x,y,z){
+        let director=function(x,z,n){
+            c=c+1;
+            console.log("第"+ c +"次移动,将第"+n+"个盘子从"+x+"移动到"+z);
+        }
+        if(n==1){
+            director(x,z,1);
+        }else{
+            move(n-1,x,z,y);
+            director(x,z,n);
+            move(n-1,y,x,z);
+        }
+    }
+    move(64,"x","y","z");
+
+</script>
+</body>
+</html>

@@ -1,6 +1,11 @@
 {
     "folders": [
         {
+            "name": "leecode_solu",
+            "path": "..\\..\\leecode_solu"
+        },
+        {
+            "name": "前端-基础",
             "path": "."
         }
     ]

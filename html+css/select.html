@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--meta : https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+    <title>select选择内容</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <select name="select1" id="select1" onchange = "console.log(this.options[this.selectedIndex].text)">
+        <option selected hidden disabled value="">选择内容</option>
+        <option value="option1">option1</option>
+        <option value="option2">option2</option>
+        <option value="option3">option3</option>
+        <option value="option4">option4</option>
+        <option value="option5">option5</option>
+    </select>
+
+    <select name="select2222" id="select2222" onchange = "console.log(this.options[this.selectedIndex].text)">
+        <option selected hidden disabled value="">选择内容</option>
+        <option value="option1">option1</option>
+        <option value="option2">option2</option>
+        <option value="option3">option3</option>
+        <option value="option4">option4</option>
+        <option value="option5">option5</option>
+    </select>
+ 
+    <select onchange="window.location.href=this.options[this.selectedIndex].value">
+        <option selected hidden disabled value="">选择内容</option>
+        <option value="http:\\www.baidu.com">百度</option>
+        <option value="http:\\www.sina.cn">新浪</option>
+    </select>
+
+    <select onchange="zhuantiao(this)">
+        <option selected hidden disabled value="">选择内容</option>
+        <option value="http:\\www.baidu.com">百度</option>
+        <option value="http:\\www.sina.cn">新浪</option>
+    </select>
+
+    <img width=500px height=500px src="..\img\img (1).jpg" name="img1"> 
+    <SELECT onChange="document.img1.src=options[this.selectedIndex].value">
+        <!-- onchange事件也可以用document.getElementById('img').src=this.value -->
+        <option selected hidden disabled value="">选择内容</option>
+        <option value="..\img\img (1).jpg">图片1</option>
+        <option value="..\img\img (2).jpg">图片2</option>
+        <option value="..\img\img (3).jpg">图片3</option>
+        <option value="..\img\img (4).jpg">图片4</option>
+        <option value="..\img\img (5).jpg">图片5</option>
+    </SELECT>
+</body>
+    <script type = "text/javascript">
+        let ifo = document.getElementById('select2222');
+        ifo.onchange = function() {
+            console.log(ifo.options[ifo.selectedIndex].text);
+        }
+        
+        function zhuantiao(e) {
+            let ahref = (e.options[e.selectedIndex].value);
+            console.log(ahref);
+        }
+    </script>
+</html>

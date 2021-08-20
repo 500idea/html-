@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--meta : https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+    <title>nth-last-of-type\ nth-of-type</title>
+    <style>
+        span:nth-last-of-type(2) {
+            background-color: lime;
+        }
+
+
+        /* 奇数段 */
+        .p1:nth-of-type(2n+1) {
+        color: red;
+        }
+
+        /* 偶数段 */
+        .p1:nth-of-type(2n) {
+        color: blue;
+        }
+
+        /* 第一段 */
+        .p1:nth-of-type(1) {
+        font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>This is a span.</span>
+        <span>This is another span.</span>
+        <em>This is emphasized.</em>
+        <span>Wow, this span gets limed!!!</span>
+        <span>Here is one last span.</span>
+    </div>
+
+    <div>
+        <div>这段不参与计数。</div>
+        <p class = 'p1'>这是第一段。</p>
+        <p class = 'p1'>这是第二段。</p>
+        <div>这段不参与计数。</div>
+        <p class = 'p1'>这是第三段。</p>
+        <p class = 'p1'>这是第四段。</p>
+      </div>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>
