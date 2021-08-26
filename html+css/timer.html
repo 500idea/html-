@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--meta : https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+    <title>timer练习</title>
+    <style>
+        input{
+            border : 1px solid black;
+            text-align: right;
+            font-size: 15px;
+        }
+        span{
+            color : red;
+            font-size : 15px;
+        }
+    </style>
+</head>
+<body>
+    分钟:<input value = '0'><br>
+    秒钟:<input value = '0'>
+</body>
+    <script type = "text/javascript">
+        let inputArr = document.getElementsByTagName('input');
+        setInterval( function(){
+            inputArr[1].value = parseInt(inputArr[1].value) + 1;
+            if(inputArr[1].value == 60){
+                inputArr[1].value = 0;
+                inputArr[0].value = parseInt(inputArr[0].value) + 1;
+                if(inputArr[0].value == 3){
+                    clearInterval(1);
+                }
+            }
+        } ,1000)
+
+    </script>
+</html>

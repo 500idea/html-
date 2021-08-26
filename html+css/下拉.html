@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .btn1 {
+            background-color: aquamarine;
+        }
+        ul {
+            position: relative;
+            bottom: 1px;
+            width: calc(100% - 30px);
+            list-style-type: none;
+            margin: 0 15px;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            width: 25%;
+            float: left;
+        }
+
+        a:link,
+        a:visited {
+            display: block;
+            padding: 15px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #bebebe;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        a:hover,
+        a:active {
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <div class="btn1" onmouseover="showMenu()" onmouseout="disMenu()">展示菜单</div>
+    <ul onmouseover="showMenu(1)" onmouseout="disMenu(1)" style="display: none;">
+        <li><a href="#home">W3Cschool</a></li>
+        <li><a href="#news">入门教程</a></li>
+        <li><a href="#contact">编程课程</a></li>
+        <li><a href="#about">编程实战</a></li>
+    </ul >
+
+    <ul onmouseover="showMenu(1)" onmouseout="disMenu(1)" style="display: none;">
+        <li><a href="#home">W3Cschool</a></li>
+        <li><a href="#news">入门教程</a></li>
+        <li><a href="#contact">编程课程</a></li>
+        <li><a href="#about">编程实战</a></li>
+    </ul>
+</body>
+<script>
+    function showMenu(x) {
+        let menu = document.getElementsByTagName('ul')[0];
+        menu.style.display = 'block';
+        if(x && x == 1){
+            let menu2 = document.getElementsByTagName('ul')[1];
+            menu2.style.display = 'block';
+        }
+    }
+    function disMenu(x) {
+        let menu = document.getElementsByTagName('ul')[0];
+        menu.style.display = 'none';
+        if(x && x == 1){
+            let menu2 = document.getElementsByTagName('ul')[1];
+            menu2.style.display = 'none';
+        }
+    }
+</script>
+</html>
