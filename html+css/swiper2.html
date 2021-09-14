@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
-        <title>swiper练习</title>
+        <title>swiper样式2</title>
         <style>
             *{
                 margin: 0;
@@ -13,16 +13,13 @@
                 height: 200px;
                 width: 400px;
                 position: relative;
+                overflow: hidden;
             }
             .swiperOne img{
-                position: absolute;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
+                float: left;
+                height: 200px;
+                width: 400px;
                 transition-duration: .5s;
-            }
-            .nowP{
-                opacity: 1 !important;
             }
             .left, .right{
                 height: 30px;
@@ -89,32 +86,6 @@
         </div>
     </body>
     <script type = "text/javascript">
-        let nowPict = 0,
-            lastPict = 0,
-            myImg = document.getElementsByTagName('img'),
-            myLi = document.getElementsByTagName('li'),
-            myLeft = document.getElementsByClassName('left')[0],
-            myRight = document.getElementsByClassName('right')[0];
-        myRight.onclick = function () {
-            lastPict = nowPict;
-            myImg[lastPict].className = '';
-            myLi[lastPict].className = '';
-            nowPict += 1;
-            nowPict %= myImg.length;
-            myImg[nowPict].className = 'nowP';
-            myLi[nowPict].className = 'active';
-        }
-        myLeft.onclick = function () {
-            lastPict = nowPict;
-            myImg[lastPict].className = '';
-            myLi[lastPict].className = '';
-            nowPict -= 1;
-            if(nowPict < 0) {
-                nowPict = myImg.length - 1;
-            }
-            myImg[nowPict].className = 'nowP';
-            myLi[nowPict].className = 'active';
-        }
-        setInterval(myRight.onclick, 3000);
+        
     </script>
 </html>

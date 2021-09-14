@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title></title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <div></div>
+        <div></div>
+        <button onclick="addel(1)">innerHTML</button>
+        <button onclick="addel(2)">appendChildren</button>
+    </body>
+    <script type = "text/javascript">
+        function addel (num) {
+        let m = num === 1 ? 0 : 1,
+        time1 = (new Date()).getTime();
+        if(m === 0){
+            for(let i = 0; i < 500; i++){
+                let str = '<span>'+ i +'</span>';
+                document.getElementsByTagName('div')[m].innerHTML += str;//慢
+            }
+            let time2 = (new Date()).getTime();
+            console.log(time2 - time1);
+        }else{
+            for(let i = 0; i < 500; i++){
+                let el = document.createElement('span');
+                el.innerText = i;
+                // el.innerHTML = i;
+                // el.innerHTML = '<span>'+ i +'</span>';
+                document.getElementsByTagName('div')[m].appendChild(el);//快
+            }
+            let time2 = (new Date()).getTime();
+            console.log(time2 - time1);
+        }
+        }   
+    </script>
+</html>

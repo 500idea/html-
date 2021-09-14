@@ -5,13 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
     <title>documentTest</title>
+    <style>
+        ul li {
+            width: 200px;
+            height: 50px;
+            margin-top: 5px;
+            list-style: none;
+            background-color: azure;
+        }
+    </style>
 </head>
 <body>
     <div>
         <!--注释-->
         <strong></strong>
     </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
 <script type = "text/javascript">
+    window.onload = function (){
+        var lis = document.getElementsByTagName('li'), len = 0;
+        for(var i = 0, len = lis.length; i < len; i++) {//var
+            (function (){
+                let num = (function (){
+                    return (function (){
+                        console.log('点击的是' + (i + 1) + '个列表')
+                    })
+                })()
+            })()
+            // function num (){
+            //     console.log('点击的是' + (i + 1) + '个列表')
+            // }
+            // lis[i].addEventListener('click',num);
+        }
+    }
 </script>
 </body>
 </html>
