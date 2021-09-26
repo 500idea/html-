@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title></title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <div id="demo">
+            <h1>插值语法</h1>
+            <p>hello, {{message}}</p>
+            <h2>指令语法</h2>
+            <a v-bind:href="url">点击去{{web}}</a>
+            <a :href="other.url">点击去{{other.web}}</a>
+        </div>
+    </body>
+    <script src="../js/vue.js"></script>
+    <script type = "text/javascript">
+        Vue.config.productionTip = false;
+        //创建Vue实例
+        new Vue({
+            el : '#demo',
+            data : {
+                message : 'world',
+                url : 'https://www.baidu.com',
+                web : '百度',
+                other : {
+                    url : 'https://m.sm.cn/.com',
+                    web : '神马'
+                }
+            }
+        })
+    </script>
+</html>

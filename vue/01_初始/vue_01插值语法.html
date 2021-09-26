@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title></title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <div id="root">
+            <h1>hello {{message.split('').reverse().join('')}}</h1>
+        </div>
+    </body>
+    <script src="../js/vue.js"></script>
+    <script type = "text/javascript">
+        Vue.config.productionTip = false;
+        //创建Vue实例
+        new Vue({
+            el : '#root',//通常是css选择器
+            data : {//存储数据结构，供vue使用，可以是对象
+                message : '张三1'
+            }
+        })
+    </script>
+</html>

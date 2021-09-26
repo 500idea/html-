@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>键盘事件</title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <!-- 
+            @keyup\keydown.别名\key值\keyCode
+            
+            Vue中常用的案件别名
+                回车--enter
+                删除--delete (包括退格 和 删除)
+                推出--esc
+                空格--space
+                换行--tab
+                方向键--up\down\left\right
+            
+            Vue中未提供别名的案件，可以使用按键自己的key值去绑定，但要注意组合单词要拆开、小写、用横线连接
+            
+            系统修饰键：ctrl、shift、alt、win
+                配合keyup使用：按下该键时，再按下其他键，再释放其他键，事件才会触发
+                配合keydown使用：正常触发
+            
+            也可以使用keyCode来指定具体的按键(不推荐。。每个键盘的keyCode的值可能不同，且该属性已遗弃)
+                请使用event.code(按键唯一标识码)
+
+            Vue.config.keyCodes.自定义键名 = keyCode  可以用来定制、添加按键别名()
+         -->
+        <div id="demo">
+            <p>{{msg}}事件</p>
+            <input type="text" placeholder="按下按钮，控制台输出" @keyup="showInfo($event)">
+        </div>
+    </body>
+    <script type = "text/javascript" src = "../js/vue.js"></script>
+    <script type = "text/javascript">
+        Vue.config.keyCodes.myBtn = 53;
+        const vm = new Vue({
+            el: '#demo',
+            data: {
+                msg: '键盘'
+            },
+            methods:{
+                showInfo(e){
+                    console.log(e.keyCode, e.key)//按键的代码和别名
+                    // console.log((e.target.value).split('').map(function(index){return fn(index)}))
+                }
+            }
+        })
+        function fn(index){
+            return (index > 2)
+        }
+    </script>
+</html>

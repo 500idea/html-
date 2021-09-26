@@ -35,21 +35,22 @@
         // if(type1.length == 6) {
         //     type1.sign = 'typeof的返回结果可能是String';
         // }
-        // console.log(type1.sign);
+        // console.log(type1.sign);//没有改属性
 
         // var n = 5;
         // function testN() {
         //     a = 0;
         //     console.log(a);
-        //     console.log(this.a);
+        //     console.log(this.a);//this指向win
         //     console.log(this.n);
         //     var a;
         //     console.log(this.a);
         // }
+        // testN();
         // var n = 5;
         // function testN(target) {
         //     a = 0;
-        //     this.a = target;
+        //     this.a = target;//this指向gg
         //     console.log(a);
         //     console.log(this.a);
         //     console.log(this.n);
@@ -115,6 +116,32 @@
         //   constructor: Person
         // }
         // var car1 = new Car('王', 'red');
+
+        let hamster = {
+            stomach: [],
+
+            eat(food) {
+                this.stomach = [food];
+            }
+        };
+
+        let speedy = {
+            name: '1',
+            __proto__: hamster
+        };
+
+        let lazy = {
+            name: '2',
+            __proto__: hamster
+        };
+
+        // 这只仓鼠找到了食物
+        speedy.eat("apple");
+        alert( speedy.stomach ); // apple
+
+        // 这只仓鼠也找到了食物，为什么？请修复它。
+        alert( lazy.stomach ); // apple
+
         //原型链
         //call/apply 改变this指向
         // function Person(name,age) {

@@ -32,12 +32,17 @@
         </style>
     </head>
     <body>
-        <div class="div1">三角形向上</div>
-        <div class="div2">三角形向下</div>
-        <div class="div3">三角形向左</div>
-        <div class="div4">三角形向右</div>
-        <div class="div5">三角形左上</div>
-        <div class="div6">三角形右下</div>
+        <div class="div1" onclick="clickit(this)">三角形向上</div>
+        <div class="div2" onclick="clickit(this)">三角形向下</div>
+        <div class="div3" onclick="clickit(this)">三角形向左</div>
+        <div class="div4" onclick="clickit(this)">三角形向右</div>
+        <div class="div5" onclick="clickit(this)">三角形左上</div>
+        <div class="div6" onclick="clickit(this)">三角形右下</div>
         <div class="box">123</div>
     </body>
+    <script type = "text/javascript">
+        function clickit (e) {
+            console.log(e.classList)
+        }
+    </script>
 </html>

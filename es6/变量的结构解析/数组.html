@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>数组的结构解析</title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <!-- 
+            es6规定按照一定的模式，从数组和对象中提取值，对变量进行赋值
+         -->
+    </body>
+    <script type = "text/javascript">
+        let [a, b, c] = [1, 2, 3];//a b c三个变量被赋值为1 2 3
+        let [m, [n]] = [1, [2]];//模式匹配，即只要等号两边的模式相同，左边的变量就会被赋予对应的值
+        let [[i], j] = [[1]]; //解析不成功或不完全解析，则未被匹配的变量被赋值undefined
+        //若等号右侧的不是可迭代的对象，js会报错
+        let [aa = '默认值', aaa] = [, 1];//允许左侧指定默认值，只有当右侧 === undefined时生效(注：null !== undefined)
+        let [bb = function fn (){console.log('这是一个惰性函数，即只有调用才运行')}] = [1];//此时右侧可以取到值，则bb = 1
+        let [ccc = ddd, ddd = 2] = [];//报错，因为ddd还没有声明
+    </script>
+</html>

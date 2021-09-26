@@ -27,6 +27,34 @@
         font-size: 14px;
         z-index: 1;
     }
+    .one{
+        box-sizing: border-box;
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background-color: #aaaaaa;
+        border: 1px black solid;
+    }
+    .one::before{
+        content: '111';
+        box-sizing: border-box;
+        position: absolute;
+        top: 50px;
+        width: 100px;
+        height: 100px;
+        background-color: #eee;
+        border: 1px black solid;
+    }
+    .one::after{
+        content: '222';
+        box-sizing: border-box;
+        position: absolute;
+        top: 70px;
+        width: 100px;
+        height: 100px;
+        background-color: #eee;
+        border: 1px black solid;
+    }
     </style>
 </head>
 <body>
@@ -35,6 +63,7 @@
         <span data-descr="small popups which also hide again">提示</span>。<br />
         把鼠标放上去<span data-descr="not to be taken literally">看看</span>.
     </p>
+    <div class="one">123</div>
     <script type = "text/javascript">
     
     </script>

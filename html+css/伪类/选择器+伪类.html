@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>css选择器和伪类</title>
+    </head>
+    <style>
+        p:nth-of-type(1){
+            color:aquamarine
+        }
+        p:first-of-type{
+            background-color: black;
+        }
+        .myP:nth-of-type(3){/* 选择的是class是myP的元素 并且 该元素是在父级元素下同类标签的第三个，，，，若没有交集，则无效果 */
+            color:white
+        }
+        .myP:last-of-type{
+            background-color: skyblue;
+        }
+        span:nth-of-type(2n+1){
+            color:blueviolet;
+        }
+        span:last-of-type{
+            background-color: beige;
+        }
+        .mySpan:first-of-type{
+            background-color: aqua;
+        }
+        .mySpan:nth-of-type(2){/* 无效果，因为没有交集 */
+            background-color: rgb(31, 37, 37);
+        }
+    </style>
+    <body>
+        <h1>这是h1</h1>
+        <p>这是第1个p</p>
+        <p class="myP">这是第2个p</p>
+        <p class="myP">这是第3个p</p>
+        <span class="mySpan">这是第1个span</span></br>
+        <span>这是第2个span</span></br>
+        <span class="mySpan">这是第3个span</span></br>
+    </body>
+    <script type = "text/javascript">
+    </script>
+</html>

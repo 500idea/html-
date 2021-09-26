@@ -1,0 +1,24 @@
+{
+	"HTMLVue": {
+		"prefix": "HTMLVue",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html>",
+			"\t<head>",
+			"\t\t<meta charset=\"UTF-8\" />",
+			"\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=0\" />",
+			"\t\t<title>$1</title>",
+			"\t</head>",
+            "\t<style>",
+            "\t</style>",
+			"\t<body>",
+			"\t\t$0",
+			"\t</body>",
+			"\t<script type = \"text/javascript\" src = \"../js/vue.js\"></script>",
+			"\t<script type = \"text/javascript\">",
+			"\t</script>",
+			"</html>"
+		],
+		"description": "HTML Template"
+	}
+}

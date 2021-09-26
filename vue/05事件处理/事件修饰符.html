@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>事件修饰符</title>
+    </head>
+    <style>
+        *{
+            margin-bottom: 20px;
+        }
+    </style>
+    <body>
+        <!--
+            .prevent:阻止默认事件
+            .stop:阻止事件冒泡
+            .once:事件只执行一次
+            .capture:使用捕获模式
+            .self:只有event.target是元素本身时，才会触发这个元素身上的事件
+            .passive:事件的默认行为立即执行，无需等待回调函数执行完毕
+        -->
+        <div id="demo">
+            九九{{message}}
+            <a href="https://www.baidu.com/" @click.prevent="showInfo($event)">点击跳转到</a><!-- .prevent阻止了a标签自带的转跳行为 -->
+
+
+            <div @click="showMsg()">
+                div2
+                <div @click="showMsg()">
+                    div3
+                    <button @click.stop="showMsg()">点击</button><!-- .stop阻止了事件冒泡 -->
+                </div>
+            </div>
+
+            <button @click.once="showMsg()">点击</button><!-- .once使得事件只能被触发一次 -->
+
+            <div @click.capture="showMsg(1)"><!-- .capture使得绑定的事件在捕获阶段就被触发-------默认的顺序是 先捕获(由外到内)，再触发(由内到外) -->
+                div2
+                <div @click="showMsg(2)">
+                    div3
+                    <button @click="showMsg(3)">点击</button>
+                </div>
+            </div>
+
+            <div @click.self="showMsg(2)"><!-- .self使得只有event.target的元素是本身时，绑定的事件才会触发，也可以用来阻止冒泡 -->
+                div3
+                <button @click="showMsg(3)">点击</button>
+            </div>
+
+
+        </div>
+    </body>
+    <script type = "text/javascript" src = "../js/vue.js"></script>
+    <script type = "text/javascript">
+        const vm = new Vue({
+            el: '#demo',
+            data(){
+                return{
+                    message: 81
+                } 
+            },
+            methods:{
+                showInfo(e){
+                    alert('点击')
+                },
+                showMsg(data1){
+                    alert('点击！');
+                    console.log(data1);
+                }
+            }
+        })
+    </script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title></title>
+    </head>
+    <style>
+    </style>
+    <body>
+        
+    </body>
+    <script type="text/javascript" src = "../js/vue.js"></script>
+    <script type = "text/javascript">
+        const vm = new Vue({
+            el : '选择器',//el第一种写法
+            // data : {//data第一种写法，对象式
+            // }
+            // data:function(){}//data第二种写法，函数式，组件式开发必须使用函数式//防止污染作用域
+            data(){
+                return {    //不能是用箭头函数，箭头函数没有自己的this
+                }
+            }
+        })
+        vm.$mount('选择器')//el的第二种写法，两种写法无异
+
+    </script>
+</html>

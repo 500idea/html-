@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>对象的结构解析</title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <!-- 
+            let {foo:fooo, bar:barr} = {foo:1, bar:2}//fooo=1, barr=2
+            对象的赋值机制是左右找到同名属性，然后再将等式右侧的值赋给等式左侧的值，也就相当于foo是用来匹配的，右侧的fooo才是变量，1才是要赋的值
+        -->
+    </body>
+    <script type = "text/javascript">
+        let {foo:fooo} = {foo:'赋值'};
+        //嵌套结构
+        let obj1 = {
+            name:'小明',
+            data:[
+                {age:18},
+                {sex:'男'}
+            ]
+        }
+        let {name:name, data, data:[{age:age}, {sex:sex}]} = obj1; 
+        let {name:name1, data:data0, data:[data1, data2]} = obj1;
+        
+        //对象的结构赋值可以取到继承的属性
+        let fat = {address:'sh'};
+        let son = {tall:178};
+        Object.setPrototypeOf(son, fat);
+        let {address: getaddress, tall: gettall} = son;
+
+        //对象的结构赋值也可以有默认值，同样实在数据 === undefined时默认值会生效
+
+        //要给已经声明好的变量赋值时，需要在外边加个括号，否则js报错
+        let x;//var x
+        ({x} = {x: 1});
+
+        //数组是特殊的对象，所以数组也可以作为参数参与对象的解构赋值
+        let arr = [1, 2, 4];
+        let {0:first, [arr.length-1]:last} = arr;
+    </script>
+</html>

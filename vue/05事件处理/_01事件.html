@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>事件</title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <!--
+            绑定事件：v-on:xxx ------@xxx
+            绑定的回调函数需要写在vm的motheds中
+            $event
+            Vue管理的函数不要使用箭头函数，会造成this指向错误
+        -->
+        <div id="myClick">{{message}}事件
+            <!-- <button v-on:click="checkit($event, 66)" style="color: #0ff;">点击</button> -->
+            <button @click="checkit($event, 66)" style="color: #0ff;">点击</button>
+        </div>
+    </body>
+    <script type = "text/javascript" src = "../js/vue.js"></script>
+    <script type = "text/javascript">
+        // let el;
+        const vm = new Vue({
+            el: '#myClick',
+            data(){
+                return {
+                    message: '点击'
+                }
+            },
+            methods: {
+                checkit(event, num){
+                    // alert('点击')
+                    console.log('点击',event, num)
+                    // el = event;
+                }
+            }
+        })
+    </script>
+</html>

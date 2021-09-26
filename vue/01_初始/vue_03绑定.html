@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title></title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <div id="demo">
+            <!-- 单向数据绑定:<input type="text" v-bind:value="message"><br> -->
+            单向数据绑定:<input type="text" :value="message"><br>
+            <!-- v-model只能应用在表单类元素上，如input、单选、多选等有value属性的元素，v-model默认收集的是value值 -->
+            <!-- 双向数据绑定:<input type="text" v-model:value="message"> -->
+            双向数据绑定:<input type="text" v-model="message">
+        </div>
+    </body>
+    <script src="../js/vue.js"></script>
+    <script type = "text/javascript">
+        Vue.config.productionTip = false;
+        //创建Vue实例
+        new Vue({
+            el : '#demo',
+            data : {
+                message : 'world',
+            }
+        })
+    </script>
+</html>
