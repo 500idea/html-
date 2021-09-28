@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>圆括号在结构解析中的使用</title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <!-- 
+            在结构解析赋值中，尽量少的使用圆括号
+        -->
+    </body>
+    <script type = "text/javascript">
+        //错误的使用圆括号
+        let ([a]) = [1];//1)变量声明中不能使用
+        // function fn([(z)]){}//函数参数也属于变量声明，不能使用圆括号
+        ([a]) = [1];//赋值语句中，将模式或者一部分模式放到圆括号中报错
+
+        //正确的使用圆括号
+        [(b)] = [3]; // 正确
+        ({ p: (d) } = {}); // 正确
+        [(parseInt.prop)] = [3]; // 正确
+        /**
+        * 上面三行语句都可以正确执行，因为首先它们都是赋值语句，而不是声明语句；
+        * 其次它们的圆括号都不属于模式的一部分。第一行语句中，模式是取数组的第一个成员，跟圆括号无关；
+        * 第二行语句中，模式是p，而不是d；第三行语句与第一行语句的性质一致。
+        */
+    </script>
+</html>

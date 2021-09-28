@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>模板字符串</title>
+    </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <body>
+        <!-- 
+            ``就是加强的字符串，会记住字符串中的回车和空格，而且也可以很方便的加入变量和表达式
+        -->
+        <div class="demo">
+
+        </div>
+    </body>
+    <script type = "text/javascript">
+        let el = document.getElementsByClassName('demo')[0];
+        el.innerText = `a line
+        123`;//模板字符串中的空格和换行都会被保留
+        el.innerText = `first
+        content`+`,
+        second content`;
+
+        let myContent = '这是变量的值';//下行空格只会生效一次
+        el.innerText = `插入一   个  变 量
+                        myContent的值是：${myContent}`;
+
+        el.innerText = `字    符串长度`;//space*4，字符串长度6
+
+        function fn(){
+            return '函数返回'
+        }
+        el.innerText = `${fn() + (1+1)}`;//大括号中可以写js表达式、引用对象、进行运算
+
+        el.innerText = `在字符串中使用\`，要加反斜杠\\`;
+
+        let total = 30;
+        let msg = passthru`The total is ${total} (${total*1.05} with tax)`;
+
+        function passthru(literals) {
+            let result = '';
+            let i = 0;
+            console.log(literals, arguments)
+            while (i < literals.length) {
+                result += literals[i++];
+                console.log(result)
+                if (i < arguments.length) {
+                result += arguments[i];
+                console.log(result)
+                }
+            }
+
+            return result;
+        }
+    </script>
+</html>

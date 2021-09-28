@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>结构解析的用途</title>
+    </head>
+    <style>
+    </style>
+    <body>
+        
+    </body>
+    <script type = "text/javascript">
+        //交换变量的值
+        let a = 1,b = 2;
+        [a, b] = [b, a];
+        
+        //从函数返回多个值，函数想一次返回多个值，要借助数组或者对象。
+        function fn (){
+            return [1, 2, 3];
+        }
+        let [aa, bb, cc] = fn();
+        
+        //函数传参
+        function fnn ({x, y, z}){
+            console.log(x, y,z)
+        }
+        fnn({x:1, z:2, y:3})
+        
+        function fnn2([m, n]){
+            console.log(m, n);
+        }
+        fnn2([1, 2])
+
+        //获取json对象中需要的部分
+        let obj1 = {
+            name: '王',
+            sex: 0,
+            age : 22,
+            address: {
+                provinces: '河北',
+                city: '石家庄'
+            }
+        }
+        let {address:{provinces:ha}, address:{city:haha}} = obj1;
+
+        //便利map对象
+        let obj2 = new Map();
+        obj2.set('first', 'one');
+        obj2.set('second', 'two');
+        for(let [key] of obj2){
+            console.log('这是key '+key)
+        }
+        for(let [key, value] of obj2){
+            console.log('这是key+value '+key+' + '+value)
+        }
+        for(let [, value] of obj2){
+            console.log('这是value '+value)
+        }
+    </script>
+</html>

@@ -55,9 +55,13 @@
         background-color: #eee;
         border: 1px black solid;
     }
+    .demo::after{
+        content: attr(content)"其他的内容";
+    }
     </style>
 </head>
 <body>
+    <div class="demo" content='123' style="width: 100px;height: 100px;">1</div>
     <p>这是上面代码的实现<br />
         我们有一些 <span data-descr="collection of words and punctuation">文字</span> 有一些
         <span data-descr="small popups which also hide again">提示</span>。<br />
