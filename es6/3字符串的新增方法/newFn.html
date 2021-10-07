@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>字符串新增方法</title>
+    </head>
+    <style>
+    </style>
+    <body>
+        <!-- 
+            1)字符串判断是否包含了另一个字符串——>indexOf()
+            es6新增
+                includes，返回布尔值，表示是否找到
+                startsWith，返回布尔值，表示目标字符串是否在头部
+                endsWith，返回布尔值，表示目标字符串是否在尾部
+
+                还可以传第二个参数，表示从字符串第几位开始寻找(0开始)
+                !!endsWith表示从0位开始寻找，直到该位 之前 停止!!
+            
+            2)方法repeat()   ''.repeat(n)
+                表示将一个字符串重复n遍
+                n为小数，向下取整， 同时若n为0~-1之间的数，会取整为-0，相当于0
+                n等于0，返回空串
+                n等于NAN，返回空串
+                n小于等于-1或者n等于infinity，报错
+                n为字符串，会先进行转换
+
+            3)方法padStart()\padEnd()   ''.padStart(n,'abc')
+                表示使用 'abc' 对字符串在 头部或者尾部 进行长度不全，直至n位
+                !!若果省略第二个参数即没有填写补全时补的内容，js自动会使用 空格 补全
+
+            4)方法trimStart()\trimEnd()
+                消去字符串开头或者结尾的空格
+
+        -->
+    </body>
+    <script type = "text/javascript">
+        let str = 'hello World!';
+
+        console.log(str.includes('llo'));
+        console.log(str.startsWith('hello'));
+        console.log(str.endsWith('!'));
+        console.log(str.includes('llo', 2));
+        console.log(str.startsWith(' W', 5));
+        console.log(str.endsWith('o', 5));
+
+
+        console.log(str.repeat(2))
+        console.log(str.repeat(2.9))
+        console.log(str.repeat(0))
+        console.log(str.repeat(-0.2))
+        console.log(str.repeat(NaN))
+        console.log(str.repeat('3'))
+        
+        
+        console.log(str.padStart(20, '0'))
+        console.log(str.padEnd(20, '0'))
+        
+
+        str = '   '+ str +'    '
+        console.log(str.trim())
+        str = '   '+ str +'    '
+        console.log(str.trimStart())
+        str = '   '+ str +'    '
+        console.log(str.trimEnd())
+    </script>
+</html>

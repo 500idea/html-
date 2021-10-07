@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>元素交换位置</title>
+    </head>
+    <style>
+        body{
+            background-color: cornsilk;
+        }
+        .dropable{
+            box-sizing: border-box;
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            padding: 5px;
+            vertical-align: top;
+            background-color: #fff;
+        }
+        .dropable_over{
+            border: 2px red dotted;
+            box-shadow: 5px 5px 10px skyblue;
+        }
+        .el{
+            height: 100%;
+            width: 100%;
+        }
+        .el1, .el2, .el3{
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .el1{
+            background-image: url(../img/img\ \(1\).jpg);
+        }
+        .el2{
+            background-image: url(../img/img\ \(2\).jpg);
+        }
+        .el3{
+            background-image: url(../img/img\ \(3\).jpg);
+        }
+
+        .dragging{
+            border: 2px yellow dotted;
+        }
+        .visibility_un{
+            display: none;
+        }
+    </style>
+    <body>
+        <!-- 
+            html部分
+                在元素中声明 draggable = 'true' 表示该元素可以拖动，否则只有一些类型可以拖动，如被选中文字、链接、图片
+            
+            js部分
+                ↓拖动--移动--放下事件
+                1、被拖对象：dragstart事件，被拖动的元素，开始拖放触发(一次)
+                2、被拖对象：drag事件，被拖放的元素，拖放过程中(一直)
+                3、经过对象：dragenter事件，拖放过程中鼠标经过的元素，被拖放的元素“开始”进入其它元素范围内(刚进入)
+                4、经过对象：dragover事件，拖放过程中鼠标经过的元素，被拖放的元素正在本元素范围内移动(100ms触发一次)
+                5、经过对象：dragleave事件，拖放过程中鼠标经过的元素，被拖放的元素离开本元素范围
+                6、被拖对象：dragend事件，拖放的对象元素，拖放结束时触发(松开鼠标 或者 ESC)，且不论是完成拖拽还是放弃拖拽
+                7、目标地点：drop事件，拖放的目标元素在可释放目标上，被释放时触发
+        -->
+        <div class="dropable">
+            <div class="el el1" draggable="true"></div>
+        </div>
+        <div class="dropable">
+            <div class="el el2" draggable="true"></div>
+        </div>
+        <div class="dropable">
+            <div class="el el3" draggable="true"></div>
+        </div>
+    </body>
+    <script type = "text/javascript">
+        let els = document.getElementsByClassName('el'),
+            dropables = document.getElementsByClassName('dropable'),
+            el_grad, dropable_drad;//保存当前拖动的元素和元素所在的容器
+        
+        for(let el of els){
+            el.addEventListener('dragstart', dragstart);
+            el.addEventListener('dragend', dragend);
+        }
+        function dragstart (){
+            this.classList.add('dragging');
+            // setTimeout(() => {
+            //     this.classList.add('visibility_un');
+            // }, 0);
+            setTimeout(function(){
+                this.classList.add('visibility_un');
+            }.bind(this), 0)
+            el_grad = this;
+            dropable_drad = this.parentElement;
+        }
+        function dragend (){
+            this.classList.remove('dragging', 'visibility_un');
+        }
+
+        for(let el of dropables){
+            el.addEventListener('dragover', dragover);
+            el.addEventListener('dragenter', dragenter);
+            el.addEventListener('dragleave', dragleave);
+            el.addEventListener('drop', drop);
+        }
+        function dragover(){
+            event.preventDefault();//阻止默认事件
+        }
+        let last_enter = '';
+        function dragenter(){
+            event.preventDefault();
+            last_enter = event.target;
+            this.classList.add('dropable_over')
+        }
+        function dragleave(){
+            event.preventDefault();
+            if(last_enter != event.target) return;
+            this.className = 'dropable';
+        }
+        function drop(){
+            event.preventDefault();
+            this.className = 'dropable';
+            if(this == dropable_drad) return;
+            dropable_drad.innerHTML = '';
+            dropable_drad.appendChild(this.children[0]);
+
+            this.innerHTML = '';
+            this.appendChild(el_grad);
+        }
+    </script>
+</html>

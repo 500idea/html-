@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>insertAdjacentHTML和insertAdjacentText</title>
+    </head>
+    <style>
+        div{
+            padding: 5px;
+            margin: 5px;
+            background-color: antiquewhite;
+            height: auto;
+        }
+    </style>
+    <body>
+        <!-- 
+            insertAdjacentHTML\insertAdjacentText---innerHTML\innerText
+            前者更加灵活，有两个参数：插入的位置、插入的内容。如insertAdiacentHTML(where, content )
+        -->
+        <div>
+            <div>
+                一个元素
+            </div>
+        </div>
+    </body>
+    <script type = "text/javascript">
+        let el = document.getElementsByTagName('div')[0];
+        
+        let arr = '<div style="height:20px;background:skyblue">插入到该元素之前</div>';
+        el.insertAdjacentHTML("beforebegin", arr);
+
+        let arr1 = '<div style="height:20px;background:skyblue">插入到该元素之后</div>';
+        el.insertAdjacentHTML("afterend", arr1);
+
+        let arr2 = '<div style="height:20px;background:skyblue">插入到该元素内部最前</div>';
+        el.insertAdjacentHTML("afterbegin", arr2);
+
+        let arr3 = '<div style="height:20px;background:skyblue">插入到该元素内部的最后</div>';
+        el.insertAdjacentHTML("beforeend", arr3);
+    </script>
+</html>

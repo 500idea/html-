@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+        <title>鼠标拖动元素移动</title>
+    </head>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        .dropable{
+            box-sizing: border-box;
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            padding: 5px;
+            vertical-align: top;
+            background-color: #fff;
+        }
+        .dropable_over{
+            border: 2px red dotted;
+            box-shadow: 5px 5px 10px skyblue;
+        }
+        .el{
+            height: 100%;
+            width: 100%;
+            background-image: url(../img/img\ \(2\).jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .dragging{
+            border: 2px yellow dotted;
+        }
+        .visibility_un{
+            display: none;
+        }
+    </style>
+    <body>
+        <!-- 
+            html部分
+                在元素中声明 draggable = 'true' 表示该元素可以拖动，否则只有一些类型可以拖动，如被选中文字、链接、图片
+            
+            js部分
+                ↓拖动--移动--放下事件
+                1、被拖对象：dragstart事件，被拖动的元素，开始拖放触发(一次)
+                2、被拖对象：drag事件，被拖放的元素，拖放过程中(一直)
+                3、经过对象：dragenter事件，拖放过程中鼠标经过的元素，被拖放的元素“开始”进入其它元素范围内(刚进入)
+                4、经过对象：dragover事件，拖放过程中鼠标经过的元素，被拖放的元素正在本元素范围内移动(100ms触发一次)
+                5、经过对象：dragleave事件，拖放过程中鼠标经过的元素，被拖放的元素离开本元素范围
+                6、目标地点：drop事件，拖放的目标元素在可释放目标上，被释放时触发
+                7、被拖对象：dragend事件，拖放的对象元素，拖放结束时触发(松开鼠标 或者 ESC)，且不论是完成拖拽还是放弃拖拽
+        -->
+        <div class="dropable">
+            <div class="el" draggable="true">这个元素可以被拖动到其他的方框中</div>
+        </div>
+        <div class="dropable"></div>
+        <div class="dropable"></div>
+    </body>
+    <script type = "text/javascript">
+        let el = document.getElementsByClassName('el')[0];
+        let dropables = document.getElementsByClassName('dropable');
+
+        el.addEventListener('dragstart', drapStart);
+        el.addEventListener('dragend', drapend);
+        function drapStart(){
+            this.className += ' dragging';
+            // setTimeout(() => {
+            //     this.className = 'visibility_un';
+            // }, 0);
+            /*
+            *
+            * 箭头函数中的this可以继承自环境
+            * 普通函数的this在非严格模式下指向调用它的元素，默认指向window
+            * 可以使用call\apply\bind改变this指向
+            * 
+            * */
+            // let e =this;
+            // setTimeout(function(){
+            //     console.log(this)
+            //     this.className = 'visibility_un';
+            // }, 0)
+            setTimeout(function(){
+                this.className = 'visibility_un';
+            }.bind(this), 0)
+        }
+        function drapend(){
+            this.className = 'el';
+        }
+        for(let el of dropables){
+            el.addEventListener('dragover', dragover)
+            el.addEventListener('dragleave', dragleave)
+            el.addEventListener('dragenter', dragenter)
+            el.addEventListener('drop', drop)
+        }
+        function dragover(e){
+            e.preventDefault();
+        }
+        function dragleave(e){
+            e.preventDefault();
+            this.className = 'dropable';
+        }
+        function dragenter(e){
+            e.preventDefault();
+            this.className += ' dropable_over';
+        }
+        function drop(e){
+            e.preventDefault();
+            this.className = 'dropable';
+            this.append(el);
+        }
+    </script>
+</html>

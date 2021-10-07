@@ -30,6 +30,15 @@
         .mySpan:nth-of-type(2){/* 无效果，因为没有交集 */
             background-color: rgb(31, 37, 37);
         }
+
+        .father, .son{
+            width: 100px;
+            height: 50px;
+            padding: 5px;
+        }
+        .father:hover>.son>span{
+            background-color: #f00;
+        }
     </style>
     <body>
         <h1>这是h1</h1>
@@ -39,6 +48,11 @@
         <span class="mySpan">这是第1个span</span></br>
         <span>这是第2个span</span></br>
         <span class="mySpan">这是第3个span</span></br>
+        
+        <div class="father">
+            father
+            <div class="son">son<span>span</span></div>
+        </div>
     </body>
     <script type = "text/javascript">
     </script>
